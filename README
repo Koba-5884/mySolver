@@ -1,0 +1,36 @@
+FEMの勉強の一環として、構造解析用のソルバーを作ってみました。
+今のところ、2次元の線形静解析のみ対応しています。
+
+
+
+使い方
+
+python main.py <入力ファイル> <出力ファイル>
+例) python main.py test.inp result.txt
+
+
+
+入力ファイルの書式
+
+*NODE, DIM = 2D
+<節点ID>, <x座標>, <y座標>
+
+*MATERIAL
+<材料ID>, <ヤング率>, <ポアソン比>
+
+*SECTION, TYPE = SHELL
+<断面ID>, <材料ID>, <板厚>
+
+*ELEMENT, TYPE = <要素タイプ>, SECTION = <断面ID>
+<要素ID>, <節点ID>, <節点ID>, <節点ID>, ...
+
+*BOUNDARY
+<節点ID>, <自由度>, <変位量>
+
+*LOAD
+<節点ID>, <自由度>, <荷重値>
+
+
+
+出力内容
+今のところ、節点の変位量のみ出力します。
